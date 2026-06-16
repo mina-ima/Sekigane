@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>席替えアプリ（Sekigane）取扱説明書</title>
+<style>
+:root{--fg:#1a1a1a;--muted:#666;--accent:#2563eb;--bg:#fff;--code:#f4f4f5;--border:#e5e7eb}*{box-sizing:border-box}body{font-family:-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.8;color:var(--fg);background:var(--bg);max-width:820px;margin:0 auto;padding:24px 18px}h1{font-size:1.7rem;border-bottom:3px solid var(--accent);padding-bottom:.4em;margin-top:0}h2{font-size:1.3rem;margin-top:2em;border-left:5px solid var(--accent);padding-left:.5em}h3{font-size:1.1rem;margin-top:1.5em}code{background:var(--code);padding:.15em .4em;border-radius:4px;font-size:.9em}pre{background:var(--code);padding:14px;border-radius:8px;overflow-x:auto}pre code{background:none;padding:0}table{border-collapse:collapse;width:100%;margin:1em 0}th,td{border:1px solid var(--border);padding:8px 10px;text-align:left}th{background:#f8fafc}blockquote{border-left:4px solid var(--accent);background:#f0f6ff;margin:1em 0;padding:.6em 1em;color:#334}a{color:var(--accent)}footer{margin-top:3em;padding-top:1em;border-top:1px solid var(--border);color:var(--muted);font-size:.85rem}@media(max-width:600px){body{padding:16px 12px}h1{font-size:1.4rem}}
+</style>
+</head>
+<body>
+<h1>席替えアプリ（Sekigane）取扱説明書</h1>
+<blockquote>教室の座席をランダムに配置し、ルーレット感覚で楽しく席替えができるアプリです。</blockquote>
+
+<h2>このアプリでできること</h2>
+<ul>
+<li>教室の「行数・列数・生徒数」を設定すると、座席をランダムに配置します。</li>
+<li>生徒の名前を入力して、空いている席番号に割り当てていけます。</li>
+<li>割り当てた席はハイライト表示され、誰がどこに座るか一目でわかります。</li>
+<li>割り当て開始前なら、ドラッグ＆ドロップで座席の位置を入れ替えられます。</li>
+<li>「リセット」でいつでも最初からやり直せます。</li>
+</ul>
+
+<h2>想定ユーザー・利用シーン</h2>
+<ul>
+<li>学校の先生やクラス委員など、席替えを行う方。</li>
+<li>公平・ランダムに座席を決めたいとき。</li>
+<li>イベントや研修などで、参加者の席をランダムに決めたいとき。</li>
+</ul>
+
+<h2>動作環境・前提</h2>
+<ul>
+<li>パソコン／スマートフォンの最近のブラウザ（Chrome / Safari など）。</li>
+<li>インストール不要。ブラウザだけで動きます。</li>
+</ul>
+
+<h2>セットアップ</h2>
+<p>ふだん使う方は、公開URL（後述）をブラウザで開くだけで利用できます。自分で動かす（開発する）場合は次の手順です。</p>
+<ol>
+<li>リポジトリを取得します。
+<pre><code>git clone https://github.com/mina-ima/Sekigane.git
+cd Sekigane</code></pre></li>
+<li>依存パッケージをインストールします。
+<pre><code>npm install</code></pre></li>
+<li>開発サーバーを起動します。
+<pre><code>npm run dev</code></pre>
+表示されたローカルURLをブラウザで開きます。</li>
+</ol>
+
+<h2>使い方（ステップbyステップ）</h2>
+<ol>
+<li>最初の設定画面で「行数」「列数」「生徒数」を入力し、開始します。</li>
+<li>座席が画面にランダムに配置されます。</li>
+<li>（任意）割り当てを始める前であれば、座席をドラッグ＆ドロップして位置を入れ替えられます。</li>
+<li>操作パネルで生徒の名前を入力し、空いている席番号に割り当てます。</li>
+<li>割り当てた席がハイライトされ、割り当て済みの生徒一覧に追加されます。</li>
+<li>すべて割り当て終わるまで繰り返します。最初からやり直したいときは「リセット」を押します。</li>
+</ol>
+
+<h2>主な機能</h2>
+<table>
+<tr><th>機能</th><th>説明</th></tr>
+<tr><td>座席のランダム配置</td><td>行数・列数・生徒数から座席をシャッフル</td></tr>
+<tr><td>生徒の割り当て</td><td>名前を入力して空席番号に割り当て</td></tr>
+<tr><td>ハイライト表示</td><td>割り当てた席を強調表示</td></tr>
+<tr><td>座席の入れ替え</td><td>割り当て開始前にドラッグ＆ドロップで移動</td></tr>
+<tr><td>リセット</td><td>設定からやり直し</td></tr>
+</table>
+
+<h2>よくある質問・トラブルシューティング</h2>
+<ul>
+<li><strong>Q. 座席を入れ替えられません。</strong> A. 生徒の割り当てを1人でも始めると、座席の入れ替えはできなくなります（順番が崩れないようにするためです）。入れ替えたい場合はリセットしてから配置し直してください。</li>
+<li><strong>Q. 生徒数より席が多い／少ないとどうなりますか？</strong> A. 「行数×列数」が席の総数です。生徒数がそれより少なければ空席ができ、席数より生徒数が多い設定はできません。</li>
+<li><strong>Q. 配置をやり直したい。</strong> A. 画面右上の「リセット」を押すと、設定画面に戻ってやり直せます。</li>
+</ul>
+
+<h2>開発者向けメモ</h2>
+<ul>
+<li><strong>技術スタック</strong>: React 19 + TypeScript + Vite。スタイルは Tailwind ユーティリティクラス（クラス名はソースに直書き）。</li>
+<li><strong>主なファイル</strong>: <code>App.tsx</code>（状態管理・シャッフルロジック）、<code>components/SettingsForm</code>（初期設定）、<code>components/ClassroomLayout</code>（座席表示・並べ替え）、<code>components/ControlPanel</code>（生徒割り当て）。エントリは <code>index.html</code> → <code>index.tsx</code>。</li>
+<li><strong>アルゴリズム</strong>: Fisher–Yates シャッフルで座席配列をランダム化。割り当て開始後は座席移動を無効化。</li>
+<li><strong>デプロイ先</strong>: 静的サイトとしてデプロイ可能（Vercel 等）。</li>
+<li><strong>本番URL</strong>: 未確認（常設の公開URLはリポジトリ/デプロイ設定を参照）。</li>
+<li><strong>リポジトリ</strong>: <a href="https://github.com/mina-ima/Sekigane">https://github.com/mina-ima/Sekigane</a></li>
+</ul>
+<h3>起動・ビルド</h3>
+<pre><code>npm install
+npm run dev        # 開発サーバー
+npm run build      # 本番ビルド（dist/ に出力）
+npm run preview    # ビルド結果をローカル確認</code></pre>
+
+<footer>このページは自動生成された取扱説明書です。</footer>
+</body>
+</html>
